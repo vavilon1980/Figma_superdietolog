@@ -28,6 +28,7 @@ import { Offer } from "./components/Offer";
 import { PersonalDataConsent } from "./components/PersonalDataConsent";
 
 const TELEGRAM_URL = "https://t.me/superdietolog_bot";
+const MAX_URL = "https://max.ru/id665910681771_bot";
 
 const problems = [
   "Начинаете питаться по новому плану, но вскоре возвращаетесь к привычному рациону.",
@@ -187,11 +188,28 @@ function Button({ children, href = TELEGRAM_URL, light = false }: { children: Re
   );
 }
 
+function CtaPair({
+  telegramLabel = "Открыть в Telegram",
+  maxLabel = "Открыть в MAX",
+  className = "",
+}: {
+  telegramLabel?: string;
+  maxLabel?: string;
+  className?: string;
+}) {
+  return (
+    <div className={`flex flex-wrap items-center gap-3 sm:gap-4 ${className}`}>
+      <Button href={TELEGRAM_URL}>{telegramLabel}</Button>
+      <Button href={MAX_URL} light>{maxLabel}</Button>
+    </div>
+  );
+}
+
 function SectionTitle({ eyebrow, children, note }: { eyebrow: string; children: React.ReactNode; note?: string }) {
   return (
     <div className="mb-10 max-w-4xl md:mb-14">
-      <div className="mb-4 inline-flex rotate-[-1deg] items-center gap-2 rounded-full border-2 border-[#171717] bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.13em] shadow-[3px_3px_0_#171717]">
-        <Sparkles className="size-4" /> {eyebrow}
+      <div className="mb-4 inline-flex rotate-[-1deg] items-center gap-2 rounded-full border-2 border-[#171717] bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.13em] text-[#171717] shadow-[3px_3px_0_#171717]">
+        <Sparkles className="size-4 shrink-0 text-[#171717]" /> {eyebrow}
       </div>
       <h2 className="font-display text-4xl font-black leading-[0.98] tracking-[-0.055em] sm:text-5xl lg:text-7xl">{children}</h2>
       {note && <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[#4A4946] md:text-xl">{note}</p>}
@@ -241,9 +259,14 @@ export default function App() {
             <a className="transition hover:text-[#5E9600]" href="#price">Стоимость</a>
             <a className="transition hover:text-[#5E9600]" href="#faq">Вопросы</a>
           </nav>
-          <a href={TELEGRAM_URL} target="_blank" rel="noreferrer" className="hidden rounded-full bg-[#171717] px-5 py-3 text-sm font-black text-white transition hover:bg-[#4C4C4C] sm:block">
-            Начать за 990 ₽
-          </a>
+          <div className="hidden items-center gap-2 sm:flex">
+            <a href={TELEGRAM_URL} target="_blank" rel="noreferrer" className="rounded-full bg-[#171717] px-4 py-3 text-sm font-black text-white transition hover:bg-[#4C4C4C]">
+              Telegram
+            </a>
+            <a href={MAX_URL} target="_blank" rel="noreferrer" className="rounded-full border-2 border-[#171717] bg-white px-4 py-2.5 text-sm font-black text-[#171717] transition hover:bg-primary">
+              MAX
+            </a>
+          </div>
           <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Открыть меню" className="grid size-10 place-items-center rounded-full bg-[#171717] text-white sm:hidden">
             {menuOpen ? <X /> : <Menu />}
           </button>
@@ -255,6 +278,12 @@ export default function App() {
                 {["Что внутри", "Как работает", "Стоимость", "Вопросы"][i]}
               </a>
             ))}
+            <a href={TELEGRAM_URL} target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)} className="rounded-xl px-4 py-3 hover:bg-primary">
+              Открыть в Telegram
+            </a>
+            <a href={MAX_URL} target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)} className="rounded-xl px-4 py-3 hover:bg-primary">
+              Открыть в MAX
+            </a>
           </nav>
         )}
       </header>
@@ -279,8 +308,8 @@ export default function App() {
               <p className="mt-8 max-w-2xl text-xl font-bold leading-snug sm:text-2xl">
                 Разберитесь в пищевых привычках, получите персональное меню, план тренировок и поддержку на каждый день.
               </p>
-              <div className="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-                <Button>Получить программу</Button>
+              <div className="mt-8 flex flex-col items-start gap-5">
+                <CtaPair telegramLabel="В Telegram" maxLabel="В MAX" />
                 <div className="flex items-center gap-3">
                   <span className="font-display text-4xl font-black tracking-[-0.05em]">990 ₽</span>
                   <span className="max-w-24 text-sm font-bold leading-tight">программа + 30 дней</span>
@@ -317,7 +346,7 @@ export default function App() {
         <section className="border-y-2 border-[#171717] bg-[#171717] py-4 text-white">
           <div className="flex min-w-max animate-[marquee_24s_linear_infinite] items-center gap-9 text-xl font-black uppercase tracking-tight">
             {Array.from({ length: 2 }).flatMap(() => ["Персональное меню", "План тренировок", "PDF-отчёт", "AI-чат 30 дней", "Дневник питания", "Анализ фото"]).map((item, i) => (
-              <span key={i} className="flex items-center gap-9"><span>{item}</span><Sparkles className="size-5 text-primary" /></span>
+              <span key={i} className="flex items-center gap-9"><span>{item}</span><span className="text-[1.15em] leading-none" aria-hidden="true">🍏</span></span>
             ))}
           </div>
         </section>
@@ -403,7 +432,7 @@ export default function App() {
                 </div>
               ))}
             </div>
-            <div className="mt-14 text-center"><Button>Начать программу за 990 ₽</Button></div>
+            <CtaPair className="mt-14 justify-center" telegramLabel="В Telegram · 990 ₽" maxLabel="В MAX · 990 ₽" />
           </div>
         </section>
 
@@ -438,7 +467,7 @@ export default function App() {
                     <span key={item} className="flex items-center gap-2 font-bold"><Check className="size-5 shrink-0" strokeWidth={3} />{item}</span>
                   ))}
                 </div>
-                <div className="mt-9"><Button light>Получить доступ за 990 ₽</Button></div>
+                <CtaPair className="mt-9" telegramLabel="В Telegram · 990 ₽" maxLabel="В MAX · 990 ₽" />
               </div>
               <div className="flex flex-col justify-between rounded-[42px] border-2 border-[#171717] bg-[#FF7CE5] p-7 sm:p-10">
                 <div>
@@ -477,10 +506,7 @@ export default function App() {
             <div>
               <SectionTitle eyebrow="Всегда под рукой">Telegram <span className="text-[#777]">&</span> MAX</SectionTitle>
               <p className="max-w-xl text-xl leading-relaxed">Меню, дневник, тренировки, отчёт и чат доступны дома, на работе, в магазине или кафе — в одном привычном интерфейсе.</p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Button>Открыть в Telegram</Button>
-                <Button href="https://max.ru/" light>Открыть в MAX</Button>
-              </div>
+              <CtaPair className="mt-8" />
             </div>
             <div id="max-note" className="relative mx-auto grid aspect-square w-full max-w-[470px] place-items-center rounded-full border-2 border-[#171717] bg-[#8CEBFF] shadow-[10px_12px_0_#171717]">
               <div className="absolute inset-10 animate-[spin_22s_linear_infinite] rounded-full border-2 border-dashed border-[#171717]" />
@@ -533,7 +559,7 @@ export default function App() {
             <span className="inline-block rotate-[-2deg] rounded-full border-2 border-[#171717] bg-white px-4 py-2 text-sm font-black shadow-[3px_3px_0_#171717]">ВАШ ТЕМП · ВАША ПРОГРАММА</span>
             <h2 className="mt-8 font-display text-5xl font-black leading-[.92] tracking-[-0.06em] sm:text-7xl lg:text-8xl">Начните с персональной поддержки</h2>
             <p className="mx-auto mt-7 max-w-3xl text-xl font-bold leading-relaxed">Персональный разбор + меню на неделю + план тренировок + список покупок + 30 дней общения с AI-помощником.</p>
-            <div className="mt-9"><Button light>Получить программу за 990 ₽</Button></div>
+            <CtaPair className="mt-9 justify-center" telegramLabel="В Telegram · 990 ₽" maxLabel="В MAX · 990 ₽" />
             <p className="mt-5 text-sm font-bold">Доступно в Telegram и MAX · Для пользователей 18+</p>
           </div>
         </section>
@@ -542,11 +568,18 @@ export default function App() {
       <footer className="bg-[#171717] px-4 py-12 text-white sm:px-6">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 border-b border-white/15 pb-10 md:grid-cols-[1fr_auto]">
-            <div><Logo /><p className="mt-5 max-w-md text-sm leading-relaxed text-white/55">Персональный AI-помощник по питанию и физической активности в Telegram и MAX.</p></div>
+            <div>
+              <Logo />
+              <p className="mt-5 max-w-md text-sm leading-relaxed text-white/55">Персональный AI-помощник по питанию и физической активности в Telegram и MAX.</p>
+              <div className="mt-5 flex flex-wrap gap-3 text-sm font-bold">
+                <a className="rounded-full border border-white/25 px-4 py-2 hover:border-primary hover:text-primary" href={TELEGRAM_URL} target="_blank" rel="noreferrer">Telegram</a>
+                <a className="rounded-full border border-white/25 px-4 py-2 hover:border-primary hover:text-primary" href={MAX_URL} target="_blank" rel="noreferrer">MAX</a>
+              </div>
+            </div>
             <div className="grid gap-3 text-sm font-bold sm:grid-cols-3 sm:gap-7">
-              <a className="hover:text-primary" href="#privacy">Политика конфиденциальности</a>
-              <a className="hover:text-primary" href="#offer">Публичная оферта</a>
-              <a className="hover:text-primary" href="#consent">Согласие на обработку данных</a>
+              <a className="hover:text-primary" href="/legal/privacy" target="_blank" rel="noreferrer">Политика конфиденциальности</a>
+              <a className="hover:text-primary" href="/legal/offer" target="_blank" rel="noreferrer">Публичная оферта</a>
+              <a className="hover:text-primary" href="/legal/consent" target="_blank" rel="noreferrer">Согласие на обработку данных</a>
             </div>
           </div>
           <div className="flex flex-col gap-3 pt-7 text-xs text-white/45 sm:flex-row sm:justify-between">

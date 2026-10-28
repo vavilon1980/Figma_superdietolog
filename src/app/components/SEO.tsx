@@ -12,8 +12,8 @@ export function SEO({
   title = 'Супердиетолог — персональный AI-помощник по питанию',
   description = 'Персональное меню, план тренировок, PDF-отчёт, дневник питания и 30 дней AI-сопровождения в Telegram и MAX за 990 ₽.',
   keywords = 'AI помощник по питанию, персональное меню, план тренировок, дневник питания, анализ еды по фото, питание и фитнес, Супердиетолог Telegram',
-  ogImage = 'https://superdietolog.ru/og-image.jpg',
-  canonicalUrl = 'https://superdietolog.ru'
+  ogImage = 'https://super-dietolog.ru/about/og-image.jpg',
+  canonicalUrl = 'https://super-dietolog.ru/about/'
 }: SEOProps) {
   useEffect(() => {
     // Set title
