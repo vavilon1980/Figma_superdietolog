@@ -27,7 +27,7 @@ import { Privacy } from "./components/Privacy";
 import { Offer } from "./components/Offer";
 import { PersonalDataConsent } from "./components/PersonalDataConsent";
 
-const TELEGRAM_URL = "https://t.me/superdietolog_bot";
+const TELEGRAM_URL = "https://telegram.me/superdietolog_bot";
 const MAX_URL = "https://max.ru/id665910681771_bot";
 
 const problems = [

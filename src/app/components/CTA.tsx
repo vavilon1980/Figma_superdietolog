@@ -45,7 +45,7 @@ export function CTA() {
 
             {/* CTA Button */}
             <a 
-              href="https://t.me/superdietolog_bot" 
+              href="https://telegram.me/superdietolog_bot" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 bg-[#A0FF00] text-black font-black px-8 py-5 sm:px-10 sm:py-6 md:px-12 md:py-7 rounded-full transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-[0_0_40px_rgba(160,255,0,0.4)] hover:shadow-[0_0_80px_rgba(160,255,0,0.6)] text-base sm:text-lg md:text-xl lg:text-2xl uppercase tracking-tight w-full sm:w-auto max-w-md sm:max-w-none mx-auto"

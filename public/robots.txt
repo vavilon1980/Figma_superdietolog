@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Allow: /about/
+
+# Служебные пути мини-приложения не индексируем отдельно
+Disallow: /api/
+Disallow: /v1/
+
+Sitemap: https://super-dietolog.ru/sitemap.xml
+
+User-agent: Yandex
+Allow: /
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term
+Host: super-dietolog.ru
+
+User-agent: Googlebot
+Allow: /

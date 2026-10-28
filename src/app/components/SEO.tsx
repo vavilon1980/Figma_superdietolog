@@ -163,7 +163,7 @@ export function SEO({
         'url': canonicalUrl,
         'logo': ogImage,
         'sameAs': [
-          'https://t.me/superdietolog_bot'
+          'https://telegram.me/superdietolog_bot'
         ],
         'contactPoint': {
           '@type': 'ContactPoint',
@@ -190,7 +190,7 @@ export function SEO({
             'name': 'Сколько стоит программа Супердиетолога?',
             'acceptedAnswer': {
               '@type': 'Answer',
-              'text': 'Стартовая персональная программа и первые 30 дней сопровождения стоят 990 ₽. Продление ещё на 30 дней — 990 ₽.'
+              'text': 'Стартовая персональная программа и первые 30 дней сопровождения стоят 990 руб. Продление ещё на 30 дней - 990 руб.'
             }
           },
           {

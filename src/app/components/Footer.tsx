@@ -34,7 +34,7 @@ export function Footer({ onPrivacyClick, onOfferClick, onConsentClick }: FooterP
                 AI-Супердиетолог
               </div>
               <a 
-                href="https://t.me/superdietolog_bot" 
+                href="https://telegram.me/superdietolog_bot" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-xs sm:text-sm text-[#A0FF00] font-black whitespace-nowrap hover:underline"
