@@ -127,6 +127,12 @@ const benefits = [
     text: "Практики осознанности, напоминания и регулярные рекомендации помогают встроить выбранные действия в повседневную жизнь.",
     label: "Без давления",
   },
+  {
+    icon: Gift,
+    title: "Гайд в подарок",
+    text: "«Вес в норме. Реальные причины и психосоматика лишнего веса» - дополнительный материал к программе. Можно скачать и читать в удобное время.",
+    label: "Подарок",
+  },
 ];
 
 const steps = [
@@ -148,6 +154,7 @@ const toolkit = [
   ["AI-чат", "Решает вопросы по мере появления"],
   ["Отслеживание прогресса", "Помогает видеть изменения"],
   ["30 дней сопровождения", "Поддерживает на практике"],
+  ["Гайд «Вес в норме» в подарок", "Дополнительный материал к программе"],
 ];
 
 const faqs = [
@@ -345,7 +352,7 @@ export default function App() {
 
         <section className="border-y-2 border-[#171717] bg-[#171717] py-4 text-white">
           <div className="flex min-w-max animate-[marquee_24s_linear_infinite] items-center gap-9 text-xl font-black uppercase tracking-tight">
-            {Array.from({ length: 2 }).flatMap(() => ["Персональное меню", "План тренировок", "PDF-отчёт", "AI-чат 30 дней", "Дневник питания", "Анализ фото"]).map((item, i) => (
+            {Array.from({ length: 2 }).flatMap(() => ["Персональное меню", "План тренировок", "PDF-отчёт", "AI-чат 30 дней", "Дневник питания", "Анализ фото", "Гайд в подарок"]).map((item, i) => (
               <span key={i} className="flex items-center gap-9"><span>{item}</span><span className="text-[1.15em] leading-none" aria-hidden="true">🍏</span></span>
             ))}
           </div>
@@ -463,7 +470,7 @@ export default function App() {
                 </div>
                 <div className="my-8 h-0.5 bg-[#171717]" />
                 <div className="grid gap-3 sm:grid-cols-2">
-                  {["Подробное анкетирование", "Многоуровневый анализ", "Персональный PDF-отчёт", "Меню на 7 дней", "План тренировок", "Список покупок", "AI-чат на 30 дней", "Анализ фото еды", "Дневник питания", "Замены и корректировки"].map((item) => (
+                  {["Подробное анкетирование", "Многоуровневый анализ", "Персональный PDF-отчёт", "Меню на 7 дней", "План тренировок", "Список покупок", "AI-чат на 30 дней", "Анализ фото еды", "Дневник питания", "Замены и корректировки", "Гайд «Вес в норме. Реальные причины и психосоматика лишнего веса» в подарок"].map((item) => (
                     <span key={item} className="flex items-center gap-2 font-bold"><Check className="size-5 shrink-0" strokeWidth={3} />{item}</span>
                   ))}
                 </div>
@@ -486,14 +493,14 @@ export default function App() {
             <div>
               <div className="mb-6 grid size-20 rotate-[-7deg] place-items-center rounded-[25px] border-2 border-[#171717] bg-[#FF7CE5] shadow-[5px_5px_0_#171717]"><Gift className="size-10" /></div>
               <h2 className="font-display text-5xl font-black leading-[.98] tracking-[-0.055em] sm:text-7xl">Приглашайте друзей</h2>
-              <p className="mt-5 text-2xl font-black">и получайте 297 ₽ за каждого</p>
+              <p className="mt-5 text-2xl font-black">и получайте 198 ₽ за каждого</p>
             </div>
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="rounded-[32px] border-2 border-[#171717] bg-white p-7 shadow-[6px_7px_0_#171717]"><span className="text-sm font-black uppercase">Ваш друг</span><p className="my-3 font-display text-5xl font-black">−20%</p><p className="font-semibold">Заплатит 792 ₽ вместо 990 ₽ по вашему промокоду.</p></div>
-              <div className="rounded-[32px] border-2 border-[#171717] bg-primary p-7 shadow-[6px_7px_0_#171717]"><span className="text-sm font-black uppercase">Вы получаете</span><p className="my-3 font-display text-5xl font-black">297 ₽</p><p className="font-semibold">30% от полной цены за подтверждённую покупку друга.</p></div>
+              <div className="rounded-[32px] border-2 border-[#171717] bg-primary p-7 shadow-[6px_7px_0_#171717]"><span className="text-sm font-black uppercase">Вы получаете</span><p className="my-3 font-display text-5xl font-black">198 ₽</p><p className="font-semibold">20% от полной цены за подтверждённую покупку друга.</p></div>
               <div className="rounded-[32px] border-2 border-[#171717] bg-[#171717] p-7 text-white sm:col-span-2">
                 <ol className="grid gap-5 sm:grid-cols-4">
-                  {["Получите промокод", "Поделитесь с другом", "Друг оплатит со скидкой", "Вам начислят 297 ₽"].map((item, i) => <li key={item} className="font-bold"><span className="mb-2 block text-primary">0{i + 1}</span>{item}</li>)}
+                  {["Получите промокод", "Поделитесь с другом", "Друг оплатит со скидкой", "Вам начислят 198 ₽"].map((item, i) => <li key={item} className="font-bold"><span className="mb-2 block text-primary">0{i + 1}</span>{item}</li>)}
                 </ol>
                 <p className="mt-6 text-xs text-white/60">Подробные условия начисления и получения вознаграждений доступны в правилах реферальной программы.</p>
               </div>
@@ -558,7 +565,7 @@ export default function App() {
           <div className="relative mx-auto max-w-5xl text-center">
             <span className="inline-block rotate-[-2deg] rounded-full border-2 border-[#171717] bg-white px-4 py-2 text-sm font-black shadow-[3px_3px_0_#171717]">ВАШ ТЕМП · ВАША ПРОГРАММА</span>
             <h2 className="mt-8 font-display text-5xl font-black leading-[.92] tracking-[-0.06em] sm:text-7xl lg:text-8xl">Начните с персональной поддержки</h2>
-            <p className="mx-auto mt-7 max-w-3xl text-xl font-bold leading-relaxed">Персональный разбор + меню на неделю + план тренировок + список покупок + 30 дней общения с AI-помощником.</p>
+            <p className="mx-auto mt-7 max-w-3xl text-xl font-bold leading-relaxed">Персональный разбор + меню на неделю + план тренировок + список покупок + 30 дней общения с AI-помощником + гайд «Вес в норме» в подарок.</p>
             <CtaPair className="mt-9 justify-center" telegramLabel="В Telegram · 990 ₽" maxLabel="В MAX · 990 ₽" />
             <p className="mt-5 text-sm font-bold">Доступно в Telegram и MAX · Для пользователей 18+</p>
           </div>
